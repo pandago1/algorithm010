@@ -132,24 +132,24 @@ function search(root, nums, k) {
 
 //////////////////////////////////////////
 剑指 Offer 49. 丑数
+
 var nthUglyNumber = function(n) {
-
-	let res	= [1];
-    let ptr2 = 0, // 下个数字永远 * 2
-        ptr3 = 0, // 下个数字永远 * 3
-        ptr5 = 0; // 下个数字永远 * 5
-	for (let i = 1; i < n; i++) {
-		res[i]	= Math.min(res[ptr2] * 2, res[ptr3] * 3,res[ptr5] * 5);
-        if (res[i] === res[ptr2] * 2) {
-            ++ptr2;
-        }
-        if (res[i] === res[ptr3] * 3) {
-            ++ptr3;
-        }
-        if (res[i] === res[ptr5] * 5) {
-            ++ptr5;
-        }
+	var arr	= [1];
+	let n2	=0,n3	=0,n5=0;
+	for (var i = 1; i < n;i++) {
+		var result2	=arr[n2] * 2;
+		var result3	=arr[n3] * 3;
+		var result5	=arr[n5] * 5;
+		arr[i]	= Math.min(result2, result3, result5);
+		if (arr[i] === result2) {
+			n2++;
+		}
+		if (arr[i] === result3) {
+			n3++;
+		}
+		if (arr[i] === result5) {
+			n5++;
+		}
 	}
-
-	return res[n - 1];
-}	
+	return arr[n - 1];
+}
